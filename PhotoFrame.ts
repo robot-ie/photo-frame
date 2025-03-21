@@ -8,6 +8,7 @@ namespace photoFrame {
         init() {
             pins.setAudioPinEnabled(false)
             this.lights.init();
+            this.navigation.init();
         }
     }
 }
