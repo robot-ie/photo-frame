@@ -14,7 +14,8 @@
         "README.md",
         "Lights.ts",
         "PhotoFrame.ts",
-        "Navigation.ts"
+        "Navigation.ts",
+        "TouchButton.ts"
     ],
     "testFiles": [
         "test.ts"
