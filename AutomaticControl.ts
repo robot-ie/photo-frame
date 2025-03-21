@@ -24,7 +24,6 @@ namespace photoFrame {
             this.isRunning = false;
             this.isRandom = false;
             this.position = 0;
-            this.handler = null;
         }
         evaluate() {
             if (!this.handler) {
@@ -34,7 +33,12 @@ namespace photoFrame {
 
             if (this.isRunning) {
                 if (!this.isRandom) {
-                    this.position = this.position + 1;
+                    if (this.position==20){
+                        this.position = 1;
+                    }
+                    else{
+                        this.position = this.position + 1;
+                    }
                 }
                 else {
                     this.position = randint(0, 19) + 1

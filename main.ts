@@ -43,7 +43,7 @@ namespace photoFrame {
 
     //% block
     //% group="Basic"
-    export function startAutomaticControl(position: number, isRandom: boolean) {
+    export function startAutomaticControlAtPosition(position: number, isRandom: boolean) {
         photoFrame.automaticControl.startAutomaticControl(position, isRandom)
     }
 
