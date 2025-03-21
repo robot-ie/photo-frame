@@ -32,18 +32,21 @@ namespace photoFrame {
             const currentTime = control.millis()
 
             if (this.isRunning) {
-                if (!this.isRandom) {
-                    if (this.position==20){
-                        this.position = 1;
-                    }
-                    else{
-                        this.position = this.position + 1;
-                    }
-                }
-                else {
-                    this.position = randint(0, 19) + 1
-                }
                 if (currentTime >= this.lastTimeOnTimestamp + 1000) {
+
+                    if (!this.isRandom) {
+                        if (this.position == 20) {
+                            this.position = 1;
+                        }
+                        else {
+                            this.position = this.position + 1;
+                        }
+                    }
+                    else {
+                        this.position = randint(0, 19) + 1
+                    }
+
+
                     this.lastTimeOnTimestamp = currentTime
                     this.handler(this.position);
                 }
