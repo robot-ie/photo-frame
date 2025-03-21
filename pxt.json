@@ -15,7 +15,8 @@
         "Lights.ts",
         "PhotoFrame.ts",
         "Navigation.ts",
-        "TouchButton.ts"
+        "TouchButton.ts",
+        "VoiceRecognition.ts"
     ],
     "testFiles": [
         "test.ts"
