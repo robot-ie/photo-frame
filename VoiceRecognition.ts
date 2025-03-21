@@ -4,7 +4,7 @@ namespace photoFrame {
         GoNext,
     }
     export class VoiceRecognition {
-        private commandsCallBacks: { learningCommand: voiceRecognition.LearningCommandWords, handler: () => void }[]
+        private commandsCallBacks: { learningCommand: voiceRecognition.LearningCommandWords, handler: () => void }[] = []
         constructor() {
 
         }
