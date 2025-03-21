@@ -13,7 +13,7 @@ namespace photoFrame {
         onCommandHeard(commandType: VoiceRecognitionCommandType, handler: () => void) {
             let learningCommand;
             if (commandType == VoiceRecognitionCommandType.GoBack) {
-                learningCommand = voiceRecognition.LearningCommandWords.W6
+                learningCommand = voiceRecognition.LearningCommandWords.W6                
             }
             else if (commandType == VoiceRecognitionCommandType.GoNext) {
                 learningCommand = voiceRecognition.LearningCommandWords.W5
@@ -32,7 +32,7 @@ namespace photoFrame {
 
         init() {
             voiceRecognition.init()
-            voiceRecognition.setMuteMode(voiceRecognition.MUTE.OFF)
+            voiceRecognition.setMuteMode(voiceRecognition.MUTE.ON)
             const commandsCallBacks = this.commandsCallBacks;
             basic.forever(function () {
                 voiceRecognition.getCMDID()
@@ -42,6 +42,7 @@ namespace photoFrame {
                         const command = commandsCallBacks[i];
                         if (voiceRecognition.readCMDID() == voiceRecognition.checkWord2(command.learningCommand)) {
                             command.handler();
+                            voiceRecognition.playByCMDID(voiceRecognition.readCMDID())
                         }
                     }
 
