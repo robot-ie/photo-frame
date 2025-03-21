@@ -1,6 +1,7 @@
 namespace photoFrame {
     export class PhotoFrame {
         lights: Lights = new Lights();
+        navigation: Navigation = new Navigation();
         constructor() {
         }
 

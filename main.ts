@@ -20,8 +20,8 @@ namespace photoFrame {
 
     //% block
     //% group="Basic"
-    export function onNext(handler: () => void) {
-       handler();
+    export function onLeftButtonActive(handler: () => void) {
+        photoFrame.navigation.onLeftButtonChanged(handler)
     }
 
 
