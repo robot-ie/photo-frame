@@ -42,7 +42,7 @@ namespace photoFrame {
                         const command = commandsCallBacks[i];
                         if (voiceRecognition.readCMDID() == voiceRecognition.checkWord2(command.learningCommand)) {
                             command.handler();
-                            //voiceRecognition.playByCMDID(voiceRecognition.readCMDID())
+                            voiceRecognition.playByCMDID(voiceRecognition.readCMDID())
                         }
                     }
 
