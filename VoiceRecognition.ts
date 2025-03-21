@@ -1,19 +1,19 @@
 namespace photoFrame {
-    enum CommandType {
+    export enum VoiceRecognitionCommandType {
         GoBack,
         GoNext,
     }
     export class VoiceRecognition {
-        commandsCallBacks: { learningCommand: voiceRecognition.LearningCommandWords, handler: () => void }[]
+        private commandsCallBacks: { learningCommand: voiceRecognition.LearningCommandWords, handler: () => void }[]
         constructor() {
 
         }
-        onCommandHeard(commandType: CommandType, handler: () => void) {
+        onCommandHeard(commandType: VoiceRecognitionCommandType, handler: () => void) {
             let learningCommand;
-            if (commandType == CommandType.GoBack) {
+            if (commandType == VoiceRecognitionCommandType.GoBack) {
                 learningCommand = voiceRecognition.LearningCommandWords.W6
             }
-            else if (commandType == CommandType.GoNext) {
+            else if (commandType == VoiceRecognitionCommandType.GoNext) {
                 learningCommand = voiceRecognition.LearningCommandWords.W5
             }
             this.commandsCallBacks.push({

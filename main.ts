@@ -30,6 +30,10 @@ namespace photoFrame {
         photoFrame.navigation.onRightButtonChanged(handler)
     }
 
-
+    //% block
+    //% group="Basic"
+    export function onCommandHeard(commandType: VoiceRecognitionCommandType, handler: () => void) {
+        photoFrame.voiceRecognition.onCommandHeard(commandType, handler)
+    }
 
 }
