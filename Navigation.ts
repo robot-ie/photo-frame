@@ -21,6 +21,9 @@ namespace photoFrame {
                     this.handler();
                 }
             }
+            else{
+                this.lastTimeOnTimestamp = 0
+            }
         }
     }
     export class Navigation {
