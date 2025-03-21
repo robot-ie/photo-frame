@@ -43,8 +43,14 @@ namespace photoFrame {
 
     //% block
     //% group="Basic"
-    export function startAutomicControl(position: number, isRandom: boolean, handler: (position:number) => void) {
-        photoFrame.automaticControl.startAutomaticControl(position, isRandom, handler)
+    export function startAutomaticControl(position: number, isRandom: boolean) {
+        photoFrame.automaticControl.startAutomaticControl(position, isRandom)
+    }
+
+    //% block
+    //% group="Basic"
+    export function onAutomicPositionChange( handler: (position: number) => void) {
+        photoFrame.automaticControl.setAutomicControlEmissionsCallback(handler)
     }
 
     //% block

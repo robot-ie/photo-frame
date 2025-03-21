@@ -12,13 +12,14 @@ namespace photoFrame {
         constructor() {
 
         }
-        startAutomaticControl(position: number, random:boolean, handler: (position: number) => void) {
+        startAutomaticControl(position: number, random:boolean) {
             this.isRunning = true;
             this.isRandom = random;
             this.position = position;
+        }
+        setAutomicControlEmissionsCallback(handler: (position: number) => void){
             this.handler = handler;
         }
-
         stop() {
             this.isRunning = false;
             this.isRandom = false;
