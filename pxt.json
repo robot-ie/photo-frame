@@ -13,7 +13,8 @@
         "main.ts",
         "README.md",
         "Lights.ts",
-        "PhotoFrame.ts"
+        "PhotoFrame.ts",
+        "Navigation.ts",
     ],
     "testFiles": [
         "test.ts"
