@@ -9,6 +9,13 @@ namespace photoFrame {
         return true;
     }
 
+    //% block
+    //% group="Basic"
+    export function turnLedAtPosition(position:number) {
+        photoFrame.lights.turnLedAt(position)
+    }
+
+
 
     //% block
     //% group="Basic"
