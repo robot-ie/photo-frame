@@ -1,22 +1,46 @@
 namespace photoFrame {
-
+    enum CommandType {
+        GoBack,
+        GoNext,
+    }
     export class VoiceRecognition {
-        private leftButton: TouchButton = new TouchButton(DigitalPin.P1)
-        private rightButton: TouchButton = new TouchButton(DigitalPin.P0)
-
+        commandsCallBacks: { learningCommand: voiceRecognition.LearningCommandWords, handler: () => void }[]
         constructor() {
 
         }
-        onLeftButtonChanged(handler: () => void) {
-            this.leftButton.setHandler(handler)
+        onCommandHeard(commandType: CommandType, handler: () => void) {
+            let learningCommand;
+            if (commandType == CommandType.GoBack) {
+                learningCommand = voiceRecognition.LearningCommandWords.W6
+            }
+            else if (commandType == CommandType.GoNext) {
+                learningCommand = voiceRecognition.LearningCommandWords.W5
+            }
+            this.commandsCallBacks.push({
+                learningCommand: learningCommand,
+                handler: handler
+            })
         }
-        onRightButtonChanged(handler: () => void) {
-            this.rightButton.setHandler(handler)
-        }
+
         init() {
+            voiceRecognition.init()
+            voiceRecognition.setMuteMode(voiceRecognition.MUTE.OFF)
+            const commandsCallBacks = this.commandsCallBacks;
             basic.forever(function () {
-                this.leftButton.evaluate();
-                this.rightButton.evaluate();
+                voiceRecognition.getCMDID()
+                if (voiceRecognition.checkCMDID()) {
+
+                    for (let i = 0; i < commandsCallBacks.length; i++) {
+                        const command = commandsCallBacks[i];
+                        if (voiceRecognition.readCMDID() == voiceRecognition.checkWord2(command.learningCommand)) {
+                            command.handler();
+                        }
+                    }
+
+
+
+
+                }
             })
         }
 
