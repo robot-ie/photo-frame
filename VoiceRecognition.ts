@@ -32,7 +32,7 @@ namespace photoFrame {
 
         init() {
             voiceRecognition.init()
-            voiceRecognition.setMuteMode(voiceRecognition.MUTE.ON)
+            voiceRecognition.setMuteMode(voiceRecognition.MUTE.OFF)
             const commandsCallBacks = this.commandsCallBacks;
             basic.forever(function () {
                 voiceRecognition.getCMDID()
@@ -41,8 +41,7 @@ namespace photoFrame {
                     for (let i = 0; i < commandsCallBacks.length; i++) {
                         const command = commandsCallBacks[i];
                         if (voiceRecognition.readCMDID() == voiceRecognition.checkWord2(command.learningCommand)) {
-                            command.handler();
-                            voiceRecognition.playByCMDID(voiceRecognition.readCMDID())
+                            command.handler();                            
                         }
                     }
 
