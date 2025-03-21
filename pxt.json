@@ -19,7 +19,8 @@
         "Navigation.ts",
         "TouchButton.ts",
         "VoiceRecognition.ts",
-        "Display.ts"
+        "Display.ts",
+        "AutomaticControl.ts"
     ],
     "testFiles": [
         "test.ts"
