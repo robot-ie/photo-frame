@@ -37,8 +37,8 @@ namespace photoFrame {
     }
 
 
-
-    
+    /*
+ 
     //% block="start Automatic Control at Position $position| shuffle  $isRandom"
     //% group="Automatic Control"
     //% inlineInputMode=inline
@@ -66,6 +66,7 @@ namespace photoFrame {
         photoFrame.lights.changeLedColor(NeoPixelColors.Green);
         photoFrame.automaticControl.stop();
     }
+    */
 
 
 }
