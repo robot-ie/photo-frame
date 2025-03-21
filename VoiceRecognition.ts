@@ -2,6 +2,8 @@ namespace photoFrame {
     export enum VoiceRecognitionCommandType {
         GoBack,
         GoNext,
+        StartAutomaticControl,
+        StartAutomaticControlRandom
     }
     export class VoiceRecognition {
         private commandsCallBacks: { learningCommand: voiceRecognition.LearningCommandWords, handler: () => void }[] = []
@@ -15,6 +17,12 @@ namespace photoFrame {
             }
             else if (commandType == VoiceRecognitionCommandType.GoNext) {
                 learningCommand = voiceRecognition.LearningCommandWords.W5
+            }
+            else if (commandType == VoiceRecognitionCommandType.StartAutomaticControl) {
+                learningCommand = voiceRecognition.LearningCommandWords.W7
+            }
+            else if (commandType == VoiceRecognitionCommandType.StartAutomaticControlRandom) {
+                learningCommand = voiceRecognition.LearningCommandWords.W8
             }
             this.commandsCallBacks.push({
                 learningCommand: learningCommand,
