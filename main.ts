@@ -3,11 +3,6 @@ namespace photoFrame {
     const photoFrame = new PhotoFrame();
     photoFrame.init();
 
-    //% block
-    //% group="Basic"
-    export function initFrame(): boolean {
-        return true;
-    }
 
     //% block
     //% group="Basic"
@@ -64,6 +59,12 @@ namespace photoFrame {
     //% group="Basic"
     export function stopAutomicControl() {
         photoFrame.automaticControl.stop();
+    }
+
+    //% block
+    //% group="Basic"
+    export function changeLedColor(color:NeoPixelColors) {
+        photoFrame.lights.changeLedColor(color)
     }
 
 }
