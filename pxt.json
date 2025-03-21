@@ -6,7 +6,9 @@
         "core": "*",
         "radio": "*",
         "microphone": "*",
-        "neopixel": "github:microsoft/pxt-neopixel#v0.7.6"
+        "neopixel": "github:microsoft/pxt-neopixel#v0.7.6",
+        "lcdDisplay": "github:DFRobot/pxt-DFRobot_lcdDisplay#v0.0.6",
+        "voiceRecognition": "github:DFRobot/pxt-DFRobot_voiceRecognition#v0.0.5"
     },
     "files": [
         "main.blocks",
