@@ -39,7 +39,7 @@ namespace photoFrame {
 
 
     
-    //% block="start Automatic Control at Position $value|position shuffle position $isRandom"
+    //% block="start Automatic Control at Position $position| shuffle  $isRandom"
     //% group="Automatic Control"
     //% inlineInputMode=inline
     export function startAutomaticControlAtPosition(position: number, isRandom: boolean) {
