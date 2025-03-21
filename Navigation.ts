@@ -6,15 +6,15 @@ namespace photoFrame {
         constructor(pin: DigitalPin) {
             this.pin = pin;
         }
-        setHandler(handler:()=>void){
+        setHandler(handler: () => void) {
             this.handler = handler;
         }
         evaluate() {
-            if (!this.handler){
+            if (!this.handler) {
                 return;
             }
             const currentTime = control.millis()
-            const buttonSignal = pins.digitalReadPin(DigitalPin.P0)
+            const buttonSignal = pins.digitalReadPin(this.pin)
             if (buttonSignal == 1) {
                 if (currentTime >= this.lastTimeOnTimestamp + 1000) {
                     this.lastTimeOnTimestamp = currentTime
@@ -32,11 +32,14 @@ namespace photoFrame {
         }
         onLeftButtonChanged(handler: () => void) {
             this.leftButton.setHandler(handler)
-
+        }
+        onRightButtonChanged(handler: () => void) {
+            this.rightButton.setHandler(handler)
         }
         init() {
             basic.forever(function () {
                 this.leftButton.evaluate();
+                this.rightButton.evaluate();
             })
         }
 

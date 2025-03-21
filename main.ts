@@ -24,6 +24,11 @@ namespace photoFrame {
         photoFrame.navigation.onLeftButtonChanged(handler)
     }
 
+    //% block
+    //% group="Basic"
+    export function onRightButtonActive(handler: () => void) {
+        photoFrame.navigation.onRightButtonChanged(handler)
+    }
 
 
 
