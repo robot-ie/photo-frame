@@ -49,9 +49,16 @@ namespace photoFrame {
 
     //% block
     //% group="Basic"
-    export function onAutomicPositionChange( handler: (newPosition: number) => void) {
+    export function onAutomaticPositionChanged( handler: () => void) {
         photoFrame.automaticControl.setAutomicControlEmissionsCallback(handler)
     }
+
+    //% block
+    //% group="Basic"
+    export function getAutomaticPosition() {
+       return photoFrame.automaticControl.position;
+    }
+
 
     //% block
     //% group="Basic"

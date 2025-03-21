@@ -5,9 +5,9 @@ namespace photoFrame {
         private lastTimeOnTimestamp: number = 0
         private isRunning: boolean = false
         private isRandom: boolean = false
-        private position: number
+        position: number
 
-        private handler: (position: number) => void
+        private handler: () => void
 
         constructor() {
 
@@ -17,7 +17,7 @@ namespace photoFrame {
             this.isRandom = random;
             this.position = position;
         }
-        setAutomicControlEmissionsCallback(handler: (position: number) => void){
+        setAutomicControlEmissionsCallback(handler: () => void){
             this.handler = handler;
         }
         stop() {
@@ -48,7 +48,7 @@ namespace photoFrame {
 
 
                     this.lastTimeOnTimestamp = currentTime
-                    this.handler(this.position);
+                    this.handler();
                 }
             }
             else{
