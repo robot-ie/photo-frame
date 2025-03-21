@@ -1,6 +1,7 @@
 namespace photoFrame {
 
-
+    const photoFrame = new PhotoFrame();
+    photoFrame.init();
 
     //% block
     //% group="Basic"
