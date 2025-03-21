@@ -15,7 +15,11 @@ namespace photoFrame {
         photoFrame.lights.turnLedAt(position)
     }
 
-
+    //% block
+    //% group="Basic"
+    export function showPhotoAtPosition(position: number) {
+        photoFrame.display.showPhotoAtPosition(position)
+    }
 
 
     //% block
