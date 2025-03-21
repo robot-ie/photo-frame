@@ -2,11 +2,12 @@ namespace photoFrame {
 
     const photoFrame = new PhotoFrame();
     photoFrame.init();
+    photoFrame.lights.changeLedColor(NeoPixelColors.Green);
 
 
     //% block
     //% group="Basic"
-    export function turnLedAtPosition(position:number) {
+    export function turnLedAtPosition(position: number) {
         photoFrame.lights.turnLedAt(position)
     }
 
@@ -39,32 +40,29 @@ namespace photoFrame {
     //% block
     //% group="Basic"
     export function startAutomaticControlAtPosition(position: number, isRandom: boolean) {
+        photoFrame.lights.changeLedColor(isRandom ? NeoPixelColors.Blue : NeoPixelColors.White);
         photoFrame.automaticControl.startAutomaticControl(position, isRandom)
     }
 
     //% block
     //% group="Basic"
-    export function onAutomaticPositionChanged( handler: () => void) {
+    export function onAutomaticPositionChanged(handler: () => void) {
         photoFrame.automaticControl.setAutomicControlEmissionsCallback(handler)
     }
 
     //% block
     //% group="Basic"
     export function getAutomaticPosition() {
-       return photoFrame.automaticControl.position;
+        return photoFrame.automaticControl.position;
     }
 
 
     //% block
     //% group="Basic"
     export function stopAutomicControl() {
+        photoFrame.lights.changeLedColor(NeoPixelColors.Green);
         photoFrame.automaticControl.stop();
     }
 
-    //% block
-    //% group="Basic"
-    export function changeLedColor(color:NeoPixelColors) {
-        photoFrame.lights.changeLedColor(color)
-    }
 
 }
