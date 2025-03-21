@@ -1,19 +1,20 @@
 namespace photoFrame {
     export class Navigation {
-        private strip: neopixel.Strip
+        private lastTimeOnTimestamp: number = 0
         constructor() {
-        }
-        init() {
-            this.strip = neopixel.create(DigitalPin.P2, 20, NeoPixelMode.RGB)
-            this.strip.setBrightness(15)
-            this.strip.showColor(neopixel.colors(NeoPixelColors.Black))
-        }
 
-
-        turnLedAt(position: number) {
-            this.strip.showColor(neopixel.colors(NeoPixelColors.Black))
-            this.strip.setPixelColor(position - 1, neopixel.colors(NeoPixelColors.Green))
-            this.strip.show()
+        }
+        onLeftButtonChanged(handler: () => void) {
+            basic.forever(function () {
+                const currentTime = control.millis()
+                const leftButtonSignal = pins.digitalReadPin(DigitalPin.P0)
+                if (leftButtonSignal == 1) {
+                    if (currentTime >= this.lastTimeOnTimestamp + 1000) {
+                        this.lastTimeOnTimestamp = currentTime
+                        handler();
+                    }
+                }
+            })
         }
 
     }
