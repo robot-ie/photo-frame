@@ -12,17 +12,13 @@ namespace photoFrame {
         constructor() {
 
         }
-        startAutomaticControl(position: number, handler: (position: number) => void) {
+        startAutomaticControl(position: number, random:boolean, handler: (position: number) => void) {
             this.isRunning = true;
+            this.isRandom = random;
             this.position = position;
             this.handler = handler;
         }
-        startRandomControl(position: number, handler: (position: number) => void) {
-            this.isRunning = true;
-            this.isRandom = true;
-            this.position = position;
-            this.handler = handler;
-        }
+
         stop() {
             this.isRunning = false;
             this.isRandom = false;
@@ -30,7 +26,9 @@ namespace photoFrame {
             this.handler = null;
         }
         evaluate() {
-
+            if (!this.handler) {
+                return;
+            }
             const currentTime = control.millis()
 
             if (this.isRunning) {

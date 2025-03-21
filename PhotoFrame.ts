@@ -4,6 +4,7 @@ namespace photoFrame {
         navigation: Navigation = new Navigation();
         voiceRecognition: VoiceRecognition = new VoiceRecognition();
         display: Display = new Display();
+        automaticControl: AutomaticControl = new AutomaticControl();
         constructor() {
         }
 
@@ -13,6 +14,7 @@ namespace photoFrame {
             this.navigation.init();
             this.voiceRecognition.init();
             this.display.init();
+            this.automaticControl.init();
         }
     }
 }

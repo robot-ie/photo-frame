@@ -40,4 +40,17 @@ namespace photoFrame {
         photoFrame.voiceRecognition.onCommandHeard(commandType, handler)
     }
 
+
+    //% block
+    //% group="Basic"
+    export function startAutomicControl(position: number, isRandom: boolean, handler: (position:number) => void) {
+        photoFrame.automaticControl.startAutomaticControl(position, isRandom, handler)
+    }
+
+    //% block
+    //% group="Basic"
+    export function stopAutomicControl() {
+        photoFrame.automaticControl.stop();
+    }
+
 }
